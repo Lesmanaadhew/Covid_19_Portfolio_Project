@@ -25,11 +25,11 @@ Upon this project I used 3 (three) tools or softwares to analyze the COVID-19 da
 
 ### The Questions
 For this project, I have several questions regarding COVID-19 that I wanted to answer through my analysis.
-1. How many COVID-19 cases were recorded worldwide from 2020 to 2025?
-2. How many people were reported died from COVID-19 between 2020 and 2025?
-3. How were the COVID-19 fatality rates between 2020 and 2025?
-4. How strict the countries were during the COVID-19 pandemic?
-5. How many people have been vaccinated worldwide from 2020 to 2025?
+1. _How many COVID-19 cases were recorded worldwide from 2020 to 2025?_
+2. _How many people were reported died from COVID-19 between 2020 and 2025?_
+3. _How were the COVID-19 fatality rates between 2020 and 2025?_
+4. _How strict the countries were during the COVID-19 pandemic?_
+5. _How many people have been vaccinated worldwide from 2020 to 2025?_
 
 
 # Data Cleaning Process
@@ -82,9 +82,76 @@ For the SQL data exploration, before I imported the dataset into the PostgreSQL 
 
 ## PostgreSQL Data Exploration
 ### Table Creation
-For the SQL database, tables is created based on the categorized columns from the previous process.
+For the SQL database, tables are created based on the categorized columns from the previous process. The following is the list of the tables and their queries:
+1. **country**
+```
+CREATE TABLE country
+(
+	country_id SERIAL PRIMARY KEY NOT NULL,
+	country VARCHAR(32) NOT NULL,
+	code CHAR(3) NOT NULL,
+	continent VARCHAR(13) NOT NULL,
+	population INT,
+	population_density NUMERIC(7,2),
+	median_age NUMERIC(4,2),
+	gdp_per_capita NUMERIC(8,2),
+	extreme_poverty NUMERIC(4,2)
+);
+```
+2. **cases**
+```
+CREATE TABLE cases
+(
+	country_id INT REFERENCES country(country_id) NOT NULL,
+	date DATE NOT NULL,
+	new_cases INT
+);
+```
+3. **deaths**
+```
+CREATE TABLE deaths
+(
+	country_id INT REFERENCES country(country_id) NOT NULL,
+	date DATE NOT NULL,
+	new_deaths INT
+);
+```
+4. **tests**
+```
+CREATE TABLE tests
+(
+	country_id INT REFERENCES country(country_id) NOT NULL,
+	date DATE NOT NULL,
+	new_tests INT
+);
+```
+5. **stringency**
+```
+CREATE TABLE stringency
+(
+	country_id INT REFERENCES country(country_id) NOT NULL,
+	date DATE NOT NULL,
+	stringency_index NUMERIC(5,2)
+);
+```
+6. **vaxes**
+```
+CREATE TABLE vaxes
+(
+	country_id INT REFERENCES country(country_id) NOT NULL,
+	date DATE NOT NULL,
+	new_vaccinations BIGINT,
+	people_vaccinated BIGINT
+);
+```
 
+### Data exploration
+There are some queries that is used to analyze the data based on the questions asked in the introduction.
+1. **cases**
+There are two things that can be analyzed in this cases table.
+2. 
 
+3. 
 
-
+These queries are highlighted in here because they answered the questions. But there are more data exploration queries from the basic to the advanced queries with a purpose to mimic the real world application. Those complete data exploration queries can be accessed in **_(insert link)_**
 
