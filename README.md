@@ -62,8 +62,8 @@ The initial dataset also contained rows with unwanted _country_ values, such as 
   
   _Examples:_
   
-<img width="240" height="207" alt="Example 1" src="https://github.com/user-attachments/assets/01f6b4cc-ed6d-47eb-8389-9fd589673b34" /> 
-<img width="240" height="207" alt="Example 2" src="https://github.com/user-attachments/assets/e684fe71-3334-47fe-9792-8ad82dc15d42" />
+<img width="360" height="312" alt="Example 1" src="https://github.com/user-attachments/assets/01f6b4cc-ed6d-47eb-8389-9fd589673b34" /> 
+<img width="360" height="312" alt="Example 2" src="https://github.com/user-attachments/assets/e684fe71-3334-47fe-9792-8ad82dc15d42" />
 
 ### Fixes data types
 For the excel visualization, I fixed some of the numeric data types because the initial dataset was formated as .csv and it had some unmatched and unrecognized numeric data types in Excel. The unrecogized numeric data types should be fixed because it couldn't be calculated in Excel for further analysis.
