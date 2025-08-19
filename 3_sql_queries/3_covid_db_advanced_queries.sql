@@ -2,6 +2,10 @@
 -- By. LESMANA ADHE WIJAYA
 
 
+--------------------------------------------------------
+--------------------ADVANCED QUERIES--------------------
+--------------------------------------------------------
+
 
 -------------------------VIEWS-------------------------
 
@@ -270,7 +274,7 @@ SELECT (fn_fx_people_vaxxed_country()).*
 -------------------------TRIGGER-------------------------
 
 
--- notice when the table is updated or inserted
+-- A notice when the table is updated or inserted
 
 
 CREATE OR REPLACE FUNCTION fn_tr_update_notice()
@@ -334,7 +338,7 @@ FOR EACH ROW
 EXECUTE FUNCTION fn_tr_update_notice();
 
 
--- trigger to block the same id and date to be inserted into a table
+-- A trigger to block the same id and date to be inserted into a table
 
 CREATE OR REPLACE FUNCTION fn_tr_date_exists_check()
 RETURNS TRIGGER

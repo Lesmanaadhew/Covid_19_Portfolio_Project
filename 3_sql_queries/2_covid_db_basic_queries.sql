@@ -3,9 +3,10 @@
 
 
 --------------------------------------------------------
+----------------------BASIC QUERIES---------------------
+--------------------------------------------------------
 --------------------DATA EXPLORATION--------------------
 --------------------------------------------------------
-
 
 
 
@@ -380,14 +381,6 @@ GROUP BY country, DATE_TRUNC('MONTH', date)
 ORDER BY country;
 
 
-
-
-----
-----
-----
-
-
-
 -- monthly death per case (date only)
 
 SELECT DATE_TRUNC('MONTH', cases.date) AS month_start, SUM(new_cases) AS monthly_cases, SUM(new_deaths) AS monthly_deaths, 
@@ -433,88 +426,3 @@ FROM
 	ORDER BY country)
 GROUP BY continent
 ORDER BY continent;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

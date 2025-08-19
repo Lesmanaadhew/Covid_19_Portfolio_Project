@@ -90,5 +90,3 @@ CREATE TABLE vaxes
 
 SELECT *
 FROM vaxes;
-
-
