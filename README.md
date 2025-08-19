@@ -15,7 +15,7 @@ The dataset used in this project based on **Our World In Data** COVID-19 dataset
 
   [COVID-19 COMPACT DATASET](https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv)
   or 
-  [1_covid_data_raw](https://github.com/Lesmanaadhew/Covid_19_Portfolio_Project/tree/main/1_database_raw) (for the .XLSX version)
+  [1_database_raw](https://github.com/Lesmanaadhew/Covid_19_Portfolio_Project/tree/main/1_database_raw) (for the .XLSX version)
 
 ### Tools or Softwares
 Upon this project I used 3 (three) tools or softwares to analyze the COVID-19 dataset.
