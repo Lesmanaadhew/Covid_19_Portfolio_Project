@@ -11,8 +11,11 @@ Hi! I am **Lesmana Adhe Wijaya**, a 22-year-old university fresh graduate from I
 This project is a series of data analysis works on COVID-19 database, starting from data cleaning to data visualization. The project mainly explores the health related impacts of COVID-19, such as, number of cases, number of deaths, number of people vaccinated, etc.
 
 ### Database Source
-The dataset used in this project based on **Our World In Data** COVID-19 dataset that can be accessed in
-[COVID-19 COMPACT DATASET](https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv)
+The dataset used in this project based on **Our World In Data** COVID-19 dataset that can be accessed in:  
+
+  [COVID-19 COMPACT DATASET](https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv)
+  or 
+  [1_covid_data_raw](https://github.com/Lesmanaadhew/Covid_19_Portfolio_Project/tree/main/1_database_raw) (for the .XLSX version)
 
 ### Tools or Softwares
 Upon this project I used 3 (three) tools or softwares to analyze the COVID-19 dataset.
@@ -59,8 +62,8 @@ The initial dataset also contained rows with unwanted _country_ values, such as 
   
   _Examples:_
   
-<img width="471" height="415" alt="Example 1" src="https://github.com/user-attachments/assets/01f6b4cc-ed6d-47eb-8389-9fd589673b34" /> 
-<img width="480" height="413" alt="Example 2" src="https://github.com/user-attachments/assets/e684fe71-3334-47fe-9792-8ad82dc15d42" />
+<img width="240" height="207" alt="Example 1" src="https://github.com/user-attachments/assets/01f6b4cc-ed6d-47eb-8389-9fd589673b34" /> 
+<img width="240" height="207" alt="Example 2" src="https://github.com/user-attachments/assets/e684fe71-3334-47fe-9792-8ad82dc15d42" />
 
 ### Fixes data types
 For the excel visualization, I fixed some of the numeric data types because the initial dataset was formated as .csv and it had some unmatched and unrecognized numeric data types in Excel. The unrecogized numeric data types should be fixed because it couldn't be calculated in Excel for further analysis.
