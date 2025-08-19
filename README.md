@@ -63,7 +63,7 @@ The initial dataset also contained rows with unwanted _country_ values, such as 
 <img width="480" height="413" alt="Example 2" src="https://github.com/user-attachments/assets/e684fe71-3334-47fe-9792-8ad82dc15d42" />
 
 ### Fixes data types
-For the excel visualization, I fixed some of the numeric data types because the initial dataset was formated as .csv and it had some unmatched and unrecognized numeric data types in Excel. The unrecogized numeric data types should be fixed because it couldn't be calculated in Excel for the analysis.
+For the excel visualization, I fixed some of the numeric data types because the initial dataset was formated as .csv and it had some unmatched and unrecognized numeric data types in Excel. The unrecogized numeric data types should be fixed because it couldn't be calculated in Excel for further analysis.
 
 ### Categorizes columns
 For the SQL data exploration, before I imported the dataset into the PostgreSQL database, I categorized the columns into 6 tables, that is:
