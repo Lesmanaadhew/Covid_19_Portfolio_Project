@@ -148,10 +148,8 @@ CREATE TABLE vaxes
 ### Data exploration
 There are some queries that is used to analyze the data based on the questions asked in the introduction.
 1. **cases**
-There are two things that can be analyzed in this cases table.
-2. 
-
-3. 
+	
+ There are two things that can be analyzed in this cases table. 
 
 These queries are highlighted in here because they answered the questions. But there are more data exploration queries from the basic to the advanced queries with a purpose to mimic the real world application. Those complete data exploration queries can be accessed in **_(insert link)_**
 
