@@ -15,7 +15,7 @@ Hi! I am **Lesmana Adhe Wijaya**, a 22-year-old university fresh graduate from I
 This project is a series of data analysis works on COVID-19 database, starting from data cleaning to data visualization. The project mainly explores the health related impacts of COVID-19, such as, number of cases, number of deaths, number of people vaccinated, etc.
 
 ### Database Source
-The dataset used in this project based on **Our World In Data** COVID-19 dataset that can be accessed in:  
+Dataset used in this project based on **Our World In Data** COVID-19 dataset that can be accessed in:  
 
   [COVID-19 COMPACT DATASET](https://catalog.ourworldindata.org/garden/covid/latest/compact/compact.csv)
   or 
