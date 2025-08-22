@@ -113,7 +113,7 @@ ORDER BY continent;
 
 
 
---------------------DEATHS QUERIES-------------------------
+--------------------DEATHS QUERIES--------------------
 
 
 -- total deaths (by country)
@@ -196,7 +196,7 @@ ORDER BY country;
 
 
 
---------------------TESTS QUERIES-------------------------
+--------------------TESTS QUERIES--------------------
 
 
 -- total tests (by country)
@@ -268,7 +268,7 @@ ORDER BY country;
 
 
 
---------------------STRINGENCY QUERIES-------------------------
+--------------------STRINGENCY QUERIES--------------------
 
 
 -- average stringency per month (date only)
@@ -403,6 +403,9 @@ GROUP BY country, DATE_TRUNC('MONTH', date)
 ORDER BY country;
 
 
+
+
+--------------------(OTHER) CALCULATIONAL QUERIES--------------------
 
 
 -- death per case (by country)
