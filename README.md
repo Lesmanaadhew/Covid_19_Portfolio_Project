@@ -151,14 +151,126 @@ CREATE TABLE vaxes
 
 ### Data exploration
 There are some queries that is used to analyze the data based on the questions asked in the introduction.
-1. **cases**
-	
- For the first data exploration of this table, I analyzed total cases by country using the following query
- **insert query**
- And here is the preview of the top 10 countries by cases, visualized using built-in data visualizer in PostgreSQL.
- **insert image**  
+#### 1. cases	
+For the first data exploration of this table, I analyzed total cases by country using the following query:
+ ```
+SELECT country, SUM(new_cases) AS total_cases
+FROM cases INNER JOIN country
+	ON cases.country_id = country.country_id
+GROUP BY country
+ORDER BY country;
+```
+ 
+ I also tried to find the top 10 countries with the most recorded COVID-19 cases using some little modifications of the previous query:
+ ```
+SELECT country, SUM(new_cases) AS total_cases
+FROM cases INNER JOIN country
+	ON cases.country_id = country.country_id
+WHERE new_cases IS NOT NULL
+GROUP BY country
+ORDER BY total_cases
+LIMIT 10;
+```
+   
+ Then I made a raw-visualization using PG Admin built-in data visualizer so I could understand the statistics better. It shows that _United States_ has the highest recorded COVID-19 cases worldwide with over 100 million, followed by _China_ that almost surpassed 100 million cases. Both of those countries have significant cases gaps compared to the third position that is _India_ with only around 40 million cases recorded.
+ <img width="1578" height="635" alt="total_cases_top10" src="https://github.com/user-attachments/assets/b2feae65-69fc-4baa-ad9a-5eebc3dff611" />
+  
+ For the next stage, I seek to examine the distribution of COVID-19 cases for each month throughout the COVID-19 pandemic using the following query.
+```
+SELECT country, DATE_TRUNC('MONTH', date) AS date, SUM(new_cases) AS monthly_cases
+FROM cases INNER JOIN country
+	ON cases.country_id = country.country_id
+GROUP BY country, DATE_TRUNC('MONTH', date)
+ORDER BY country;
+```  
 
- For the next exploration, I seek to analyze how was 
+#### 2. deaths
+For this table, I analyzed the data using a similar approach to the previous one: first, I calculated the total COVID-19 deaths by country, and then I identified the top 10 countries.	
+Here is the first query:
+```
+SELECT country, SUM(new_deaths) AS total_deaths
+FROM deaths INNER JOIN country
+	ON deaths.country_id = country.country_id
+GROUP BY country
+ORDER BY country;
+```
+
+Then here is the top 10 countries with the most recorded COVID-19 deaths:
+```
+SELECT country, SUM(new_deaths) AS total_deaths
+FROM deaths INNER JOIN country
+	ON deaths.country_id = country.country_id
+WHERE new_deaths IS NOT NULL
+GROUP BY country
+ORDER BY total_deaths
+LIMIT 10;
+```
+
+ I also visualize it using PG Admin. The data shows that _United States_ is once again the country with the most COVID-19 deaths with 1.2 million people died from COVID-19. The second most COVID-19 deaths is held by Brazil with around 700 thousand deaths.
+ <img width="1578" height="635" alt="total_deaths_top10" src="https://github.com/user-attachments/assets/4d78e490-27e5-49bf-b8dc-3bef42b49388" />
+
+ Similar to the previous table, I also analyzed COVID-19 deaths by date from 2020 to 2025 using this query:
+ ```
+SELECT country, DATE_TRUNC('MONTH', date) AS date, SUM(new_deaths) AS monthly_deaths
+FROM deaths INNER JOIN country
+	ON deaths.country_id = country.country_id
+GROUP BY country, DATE_TRUNC('MONTH', date)
+ORDER BY country;
+```
+
+#### 3. Fatality rate
+Using both _cases_ and _deaths_ tables, I can calculate the fatality rate of COVID-19. In the following query I divided _death_ with _cases_ to calculate the fatality rate:
+```
+SELECT country,
+	ROUND((SUM(new_deaths)::float / NULLIF(SUM(new_cases),0))::numeric, 4) AS death_per_case
+FROM country INNER JOIN cases
+	ON country.country_id = cases.country_id
+	INNER JOIN deaths
+		ON country.country_id = deaths.country_id AND cases.date = deaths.date
+GROUP BY country
+ORDER BY country;
+```
+
+I also identified the top 10 countries with the most COVID-19 fatality rate:
+```
+SELECT country, death_per_case
+FROM(
+	SELECT country,
+		NULLIF(ROUND((NULLIF(SUM(new_deaths),0)::float / NULLIF(SUM(new_cases),0))::numeric, 4),1) AS death_per_case
+	FROM country INNER JOIN cases
+		ON country.country_id = cases.country_id
+		INNER JOIN deaths
+			ON country.country_id = deaths.country_id AND cases.date = deaths.date
+	GROUP BY country
+	ORDER BY death_per_case DESC)
+WHERE death_per_case IS NOT NULL
+LIMIT 10;
+```
+
+ The result shows that _Yemen_ is the country with the highest fatality rate, that is 18 percent. The second place is held by _Sudan_ and is significantly lower than _Yemen_ by 55 percent that is 7.9 percent fatality rate.
+<img width="1578" height="637" alt="total_deathpercase_top10" src="https://github.com/user-attachments/assets/b55e1499-0dce-42f8-855c-49e2c9d391a3" />
+
+  I also examined how the fatality rate changed throughout the COVID-19 pandemic. For the examination I used the following query:
+  ```
+SELECT country, DATE_TRUNC('MONTH', cases.date) AS month_start, SUM(new_cases) AS monthly_cases, SUM(new_deaths) AS monthly_deaths,
+	ROUND((SUM(new_deaths)::float / NULLIF(SUM(new_cases),0))::numeric, 4) AS monthly_death_per_case
+FROM country INNER JOIN cases
+	ON country.country_id = cases.country_id
+	INNER JOIN deaths
+		ON country.country_id = deaths.country_id AND cases.date = deaths.date
+GROUP BY country, DATE_TRUNC('MONTH', cases.date)
+ORDER BY country;
+```
+
+#### 4. Stringency index
+
+
+
+
+
+
+
+
+
 
 These queries are highlighted in here because they answered the questions. But there are more data exploration queries from the basic to the advanced queries with a purpose to mimic the real world application. Those complete data exploration queries can be accessed in **_(insert link)_**
-
