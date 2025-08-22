@@ -153,7 +153,12 @@ CREATE TABLE vaxes
 There are some queries that is used to analyze the data based on the questions asked in the introduction.
 1. **cases**
 	
- There are two things that can be analyzed in this cases table. 
+ For the first data exploration of this table, I analyzed total cases by country using the following query
+ **insert query**
+ And here is the preview of the top 10 countries by cases, visualized using built-in data visualizer in PostgreSQL.
+ **insert image**  
+
+ For the next exploration, I seek to analyze how was 
 
 These queries are highlighted in here because they answered the questions. But there are more data exploration queries from the basic to the advanced queries with a purpose to mimic the real world application. Those complete data exploration queries can be accessed in **_(insert link)_**
 
