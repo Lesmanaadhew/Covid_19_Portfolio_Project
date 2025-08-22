@@ -22,6 +22,17 @@ GROUP BY country
 ORDER BY country;
 
 
+-- top 10 cases (by country)
+
+SELECT country, SUM(new_cases) AS total_cases
+FROM cases INNER JOIN country
+	ON cases.country_id = country.country_id
+WHERE new_cases IS NOT NULL
+GROUP BY country
+ORDER BY total_cases
+LIMIT 10;
+
+
 -- total cases (by continent)
 
 SELECT continent, SUM(new_cases) AS total_cases
@@ -102,7 +113,7 @@ ORDER BY continent;
 
 
 
---------------------DEATHS QUERIES-------------------------
+--------------------DEATHS QUERIES--------------------
 
 
 -- total deaths (by country)
@@ -112,6 +123,17 @@ FROM deaths INNER JOIN country
 	ON deaths.country_id = country.country_id
 GROUP BY country
 ORDER BY country;
+
+
+-- top 10 total deaths (by country)
+
+SELECT country, SUM(new_deaths) AS total_deaths
+FROM deaths INNER JOIN country
+	ON deaths.country_id = country.country_id
+WHERE new_deaths IS NOT NULL
+GROUP BY country
+ORDER BY total_deaths
+LIMIT 10;
 
 
 -- total deaths (by continent)
@@ -174,7 +196,7 @@ ORDER BY country;
 
 
 
---------------------TESTS QUERIES-------------------------
+--------------------TESTS QUERIES--------------------
 
 
 -- total tests (by country)
@@ -246,7 +268,7 @@ ORDER BY country;
 
 
 
---------------------STRINGENCY QUERIES-------------------------
+--------------------STRINGENCY QUERIES--------------------
 
 
 -- average stringency per month (date only)
@@ -379,6 +401,39 @@ FROM vaxes INNER JOIN country
 	ON vaxes.country_id = country.country_id
 GROUP BY country, DATE_TRUNC('MONTH', date)
 ORDER BY country;
+
+
+
+
+--------------------(OTHER) CALCULATIONAL QUERIES--------------------
+
+
+-- death per case (by country)
+
+SELECT country,
+	ROUND((SUM(new_deaths)::float / NULLIF(SUM(new_cases),0))::numeric, 4) AS death_per_case
+FROM country INNER JOIN cases
+	ON country.country_id = cases.country_id
+	INNER JOIN deaths
+		ON country.country_id = deaths.country_id AND cases.date = deaths.date
+GROUP BY country
+ORDER BY country;
+
+
+-- top 10 death per case (by country)
+
+SELECT country, death_per_case
+FROM(
+	SELECT country,
+		NULLIF(ROUND((NULLIF(SUM(new_deaths),0)::float / NULLIF(SUM(new_cases),0))::numeric, 4),1) AS death_per_case
+	FROM country INNER JOIN cases
+		ON country.country_id = cases.country_id
+		INNER JOIN deaths
+			ON country.country_id = deaths.country_id AND cases.date = deaths.date
+	GROUP BY country
+	ORDER BY death_per_case DESC)
+WHERE death_per_case IS NOT NULL
+LIMIT 10;
 
 
 -- monthly death per case (date only)
