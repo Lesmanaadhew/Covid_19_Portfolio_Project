@@ -1,10 +1,12 @@
 # COVID-19 PORTFOLIO PROJECT
 
 ### _Preview_
-_Excel dashboard preview:_  
+_Excel dashboard preview (please wait):_  
+_Insert Excel link_  
 ![dashboard_excel_covid](https://github.com/user-attachments/assets/3a0ce71b-eda5-41d7-b3d7-8bd3d14e0b5b)  
 
-_Tableau dashboard preview:_  
+_Tableau dashboard preview (please wait):_  
+_Insert Tableau link_  
 ![dashboard_tableau_covid](https://github.com/user-attachments/assets/2631abe2-366a-4ee8-9612-4eca2d4ecd9b)
 
 
