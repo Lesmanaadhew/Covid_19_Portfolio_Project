@@ -425,7 +425,7 @@ ORDER BY country;
 SELECT country, death_per_case
 FROM(
 	SELECT country,
-		NULLIF(ROUND((NULLIF(SUM(new_deaths),0)::float / NULLIF(SUM(new_cases),0))::numeric, 4),1) AS death_per_case
+		ROUND((NULLIF(SUM(new_deaths),0)::float / NULLIF(SUM(new_cases),0))::numeric, 4) AS death_per_case
 	FROM country INNER JOIN cases
 		ON country.country_id = cases.country_id
 		INNER JOIN deaths
