@@ -396,11 +396,22 @@ ORDER BY month_start;
 
 -- people vaxxed cumulative (by country)
 
-SELECT country, DATE_TRUNC('MONTH', date) As month_start, MAX(people_vaccinated) AS people_vaxxed_cum
+SELECT country, MAX(people_vaccinated) AS people_vaxxed_cum
 FROM vaxes INNER JOIN country
 	ON vaxes.country_id = country.country_id
 GROUP BY country, DATE_TRUNC('MONTH', date)
 ORDER BY country;
+
+
+-- top 10 people vaxxed cumulative (by country)
+
+SELECT country, MAX(people_vaccinated) AS people_vaxxed_cum
+FROM vaxes INNER JOIN country
+	ON vaxes.country_id = country.country_id
+WHERE people_vaccinated IS NOT NULL
+GROUP BY country
+ORDER BY people_vaxxed_cum DESC
+LIMIT 10;
 
 
 
