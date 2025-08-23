@@ -373,7 +373,8 @@ Based on the results of previous data explorations, I created two interactive da
 To make the dashboard interactive, I use 2 dropdown list in the Excel version.  
   
 The upper dropdown list contains 7 types of analysis that can be applied to the charts.  
-<img width="232" height="139" alt="excel_dropdown_upper" src="https://github.com/user-attachments/assets/1513db12-9383-4844-90f9-3ca1581f7eff" />
+<img width="231" height="133" alt="excel_dropdown_upper" src="https://github.com/user-attachments/assets/874def44-3f9c-40ed-b9ee-6de3bb71c2b8" />
+
   
 The second dropdown list contains a list of countries and an aggregate of all countries called _World_.  
 <img width="232" height="147" alt="excel_dropdown_bottom" src="https://github.com/user-attachments/assets/fe33333d-0abb-490a-92f1-6d9706152b5f" />
