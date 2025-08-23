@@ -1,11 +1,11 @@
 # COVID-19 PORTFOLIO PROJECT
 
 ### _Preview_
-_Excel dashboard preview (please wait):_  
+_Excel dashboard preview (please kindly wait for the image to show up):_  
 _Insert Excel link_  
 ![dashboard_excel_covid](https://github.com/user-attachments/assets/3a0ce71b-eda5-41d7-b3d7-8bd3d14e0b5b)  
 
-_Tableau dashboard preview (please wait):_  
+_Tableau dashboard preview (please kindly wait for the image to show up):_  
 _Insert Tableau link_  
 ![dashboard_tableau_covid](https://github.com/user-attachments/assets/2631abe2-366a-4ee8-9612-4eca2d4ecd9b)
 
@@ -152,7 +152,8 @@ CREATE TABLE vaxes
 ```
 
 ### Data exploration
-There are some queries that is used to analyze the data based on the questions asked in the introduction.
+There are some queries that is used to analyze the data based on the questions asked in the introduction. These following queries are highlighted in here because they answered the questions. But there are more data exploration queries from the basic to the advanced queries with a purpose to mimic the real world application. Those complete data exploration queries can be accessed in [here](https://github.com/Lesmanaadhew/Covid_19_Portfolio_Project/tree/main/3_sql_queries)
+
 #### 1. cases	
 For the first data exploration of this table, I analyzed total cases by country using the following query:
  ```
@@ -238,7 +239,7 @@ I also identified the top 10 countries with the most COVID-19 fatality rate:
 SELECT country, death_per_case
 FROM(
 	SELECT country,
-		NULLIF(ROUND((NULLIF(SUM(new_deaths),0)::float / NULLIF(SUM(new_cases),0))::numeric, 4),1) AS death_per_case
+		ROUND((NULLIF(SUM(new_deaths),0)::float / NULLIF(SUM(new_cases),0))::numeric, 4) AS death_per_case
 	FROM country INNER JOIN cases
 		ON country.country_id = cases.country_id
 		INNER JOIN deaths
@@ -264,7 +265,92 @@ GROUP BY country, DATE_TRUNC('MONTH', cases.date)
 ORDER BY country;
 ```
 
-#### 4. Stringency index
+#### 4. Stringency
+For the next data exploration, I examined how strict each country's policy  was throughout the COVID-19 pandemic. Our Wolrd in Data's COVID-19 dataset has an indicator for a country strictness towards the pandemic called _stringency index_, and is calculated based on 9 (nine) metrics such as school closures; workplace closures; cancellation of public events; restrictions on public gatherings; closures of public transport; stay-at-home requirements; public information campaigns; restrictions on internal movements; and international travel controls.[^1]
+
+[^1]: Max Roser, "What is the COVID-19 Stringency Index?", _Our World in Data_, https://ourworldindata.org/metrics-explained-covid19-stringency-index
+
+ I used the following query to calculate the average stringency for each month from 2020 to 2025:
+ ```
+SELECT country, DATE_TRUNC('MONTH', date) AS month_start, ROUND(AVG(stringency_index), 2) AS avg_stringency
+FROM stringency INNER JOIN country
+	ON stringency.country_id = country.country_id
+GROUP BY country, DATE_TRUNC('MONTH', date)
+ORDER BY country;
+```
+
+#### 5. vaxes
+There are 3 analyses that I made for this table, the first one is the total COVID-19 vaccinations of each country. This analysis is calculated by accumulating the recorded _new_vaccinations_ data, in which it might be inaccurate because a lot of countries didn't have daily vaccinations recorded. But here is the query that I used:
+```
+SELECT country, SUM(new_vaccinations) AS total_vaccinations
+FROM vaxes INNER JOIN country
+	ON vaxes.country_id = country.country_id
+GROUP BY country
+ORDER BY country;
+```
+
+And here is the query for the top 10 countries with the most COVID-19 vaccinations:
+```
+SELECT country, SUM(new_vaccinations) AS total_vaccinations
+FROM vaxes INNER JOIN country
+	ON vaxes.country_id = country.country_id
+WHERE new_vaccinations IS NOT NULL
+GROUP BY country
+ORDER BY total_vaccinations DESC
+LIMIT 10;
+```
+  
+The result shows that _China_, _India_, and _United States_ are among the top 3 countries with the most vaccinations. The result makes a lot of sense since they are also among the top populated countries worldwide, although China as the second most populated country surpassed India in the total vaccinations by 61 percent.
+<img width="1578" height="543" alt="total_vaxes_top10" src="https://github.com/user-attachments/assets/8be90985-d84e-4154-9049-e49cfb93c77a" />
+
+ And it's also the case with the total people vaccinated for each country. I examined the total people vaccinated for each country using the following query, and I purposefully using **MAX(people_vaccinated)** instead of **SUM(people_vaccinated)** because by default the _people_vaccinated_ data is presented in a cumulative manner in the dataset.
+
+ ```
+SELECT country, MAX(people_vaccinated) AS people_vaxxed_cum
+FROM vaxes INNER JOIN country
+	ON vaxes.country_id = country.country_id
+GROUP BY country, DATE_TRUNC('MONTH', date)
+ORDER BY country;
+```
+
+ And here is the query for the top 10:
+ ```
+SELECT country, MAX(people_vaccinated) AS people_vaxxed_cum
+FROM vaxes INNER JOIN country
+	ON vaxes.country_id = country.country_id
+WHERE people_vaccinated IS NOT NULL
+GROUP BY country
+ORDER BY people_vaxxed_cum DESC
+LIMIT 10;
+```
+	
+ And the result is aligned with the previous analysis (total vaccinations by country). The top 3 countries are still the countries with the most population in the world, that is _China_, _India_, and _United States_, and China also surpassed India in this analysis.
+<img width="1578" height="546" alt="total_peoplevaxxed_top10" src="https://github.com/user-attachments/assets/5fa0e36b-400a-491d-b2ad-93056e97f509" />
+
+ 	
+Because the significant population inequality worldwide, I also analyzed people vaccinated rate for each country relative to its population. Here is the query:
+```
+SELECT country, MAX(population) AS population, MAX(people_vaccinated) AS people_vaxxed,
+	ROUND((MAX(people_vaccinated)::float/MAX(population))::numeric, 2) AS people_vaxxed_percentage
+FROM country INNER JOIN vaxes
+	ON country.country_id = vaxes.country_id
+GROUP BY country;
+```
+
+I also examined the top 10 using this query:
+```
+SELECT country,
+	ROUND((MAX(people_vaccinated)::float/MAX(population))::numeric, 2) AS people_vaxxed_percentage
+FROM country INNER JOIN vaxes
+	ON country.country_id = vaxes.country_id
+WHERE people_vaccinated IS NOT NULL
+GROUP BY country
+ORDER BY people_vaxxed_percentage DESC
+LIMIT 10;
+```
+
+The result shows that the top 10 countries with the most people vaccinated are not among this analysis.
+<img width="1578" height="546" alt="total_peoplevaxxed_percent_top10" src="https://github.com/user-attachments/assets/a5b8635f-7ef8-4f01-9bee-898518cc17ef" />
 
 
 
@@ -275,4 +361,6 @@ ORDER BY country;
 
 
 
-These queries are highlighted in here because they answered the questions. But there are more data exploration queries from the basic to the advanced queries with a purpose to mimic the real world application. Those complete data exploration queries can be accessed in **_(insert link)_**
+
+
+
