@@ -1,12 +1,12 @@
 # COVID-19 PORTFOLIO PROJECT
 
 ### _Preview_
-_Excel dashboard preview (please kindly wait for the image to show up):_  
-_Insert Excel link_  
+_Excel dashboard preview (please kindly wait for the preview to show up):_  
+_The Excel dashboard (.XLSX) file can be accessed in [here](https://github.com/Lesmanaadhew/Covid_19_Portfolio_Project/tree/main/4_dashboard/1_excel_dashboard)_
 ![dashboard_excel_covid](https://github.com/user-attachments/assets/3a0ce71b-eda5-41d7-b3d7-8bd3d14e0b5b)  
 
-_Tableau dashboard preview (please kindly wait for the image to show up):_  
-_Insert Tableau link_  
+_Tableau dashboard preview (please kindly wait for the preview to show up):_  
+_The Tableau dashboard (online) can be accessed in [here](https://public.tableau.com/app/profile/lesmana.aw/viz/covid_19_dashboard_17557145588000/COVID-19DASHBOARD)_  
 ![dashboard_tableau_covid](https://github.com/user-attachments/assets/2631abe2-366a-4ee8-9612-4eca2d4ecd9b)
 
 
@@ -23,8 +23,8 @@ Dataset used in this project based on **Our World In Data** COVID-19 dataset tha
   or 
   [1_database_raw](https://github.com/Lesmanaadhew/Covid_19_Portfolio_Project/tree/main/1_database_raw) (for the .XLSX version)
 
-### Tools or Softwares
-Upon this project I used 3 (three) tools or softwares to analyze the COVID-19 dataset.
+### Tools or Software
+Upon this project I used 3 (three) tools or software to analyze the COVID-19 dataset.
 1. **Excel**: this software is used for data cleaning and data visualization.
 2. **PostgreSQL**: this tool is mainly used for data exploration.
 3. **Tableau**: This software is used for data visualization.
@@ -351,6 +351,68 @@ LIMIT 10;
 
 The result shows that the top 10 countries with the most people vaccinated are not among this analysis.
 <img width="1578" height="546" alt="total_peoplevaxxed_percent_top10" src="https://github.com/user-attachments/assets/a5b8635f-7ef8-4f01-9bee-898518cc17ef" />
+
+
+# Data Visualization
+Based on the results of previous data explorations, I created two interactive dashboards to visualize the analysis using Excel and Tableau.
+
+ In general, I use 4 particular chart types, that is:
+ 1. **Donut chart**
+ 2. **Map chart**
+ 3. **Line chart**
+ 4. **Bar/column chart**
+
+## Excel dashboard
+![dashboard_excel_covid](https://github.com/user-attachments/assets/94de4f4f-2f2b-4412-9d20-ac4033d9646f)
+
+ For the Excel version, I created 6 visualizations that are linked to two dropdown lists, and 1 independent visualization.
+
+### 1. Dropdown list
+<img width="211" height="115" alt="excel_dropdown" src="https://github.com/user-attachments/assets/e3412a5b-f5d6-4752-9bfe-4d07642567d6" />
+
+To make the dashboard interactive, I use 2 dropdown list in the Excel version.  
+  
+The upper dropdown list contains 7 types of analysis that can be applied to the charts.  
+<img width="232" height="139" alt="excel_dropdown_upper" src="https://github.com/user-attachments/assets/1513db12-9383-4844-90f9-3ca1581f7eff" />
+  
+The second dropdown list contains a list of countries and an aggregate of all countries called _World_.  
+<img width="232" height="147" alt="excel_dropdown_bottom" src="https://github.com/user-attachments/assets/fe33333d-0abb-490a-92f1-6d9706152b5f" />
+
+### 2. Donut chart
+<img width="208" height="218" alt="excel_donut_cases" src="https://github.com/user-attachments/assets/dc6f38fc-b4c7-4ead-aa3c-4a82a9308687" />
+<img width="204" height="206" alt="excel_donut_deaths" src="https://github.com/user-attachments/assets/76b0e9e7-eb11-4644-a985-f342e6c4cd64" />
+<img width="224" height="203" alt="excel_donut_vaxxed" src="https://github.com/user-attachments/assets/5acc5dc9-5dfc-407e-878f-ff1add26b2a7" />
+
+ There are 3 donut charts that serve as KPIs, summarizing the results of three analyses, that is Total Cases, Total Deaths, and People Vaxxed.  
+  
+The outer layer of each graph represents the top 5 countries in the analysis, while the inner layer shows the aggregate of the data. The outer layer is an independent layer, while the inner layer is linked to the country dropdown list. Thus, the value of the inner layer will change depending on the country selected.  
+  
+Here is the example if United States is selected:  
+<img width="205" height="213" alt="excel_donut_cases_us" src="https://github.com/user-attachments/assets/d9089398-4ea4-4513-a316-5959bcd90cc6" />
+<img width="196" height="194" alt="excel_donut_deaths_us" src="https://github.com/user-attachments/assets/f6f7dcfe-078d-4f43-a1c7-adf6fc8a1bdf" />
+<img width="220" height="197" alt="excel_donut_vaxxed_us" src="https://github.com/user-attachments/assets/2ff5dca5-c904-4722-b9d6-6b1fc24b0df6" />
+
+
+### 3. Map Chart
+<img width="500" height="320" alt="excel_map" src="https://github.com/user-attachments/assets/bcafc284-5ec6-4982-9a73-5843a6d31f8a" />
+  
+The next one is a map chart. The chart is linked to the upper dropdown list and its value and caption will change depending on the type selected.  
+  
+Here is the example if the _deaths_ type is selected:  
+<img width="500" height="320" alt="excel_map_deaths" src="https://github.com/user-attachments/assets/22acef49-a27a-4f5a-8404-4b0f9ddb6ec3" />
+
+
+### 4. Line chart
+
+
+
+
+
+
+ 
+ 
+
+
 
 
 
