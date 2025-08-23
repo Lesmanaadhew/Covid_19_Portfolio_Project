@@ -480,6 +480,18 @@ FROM country INNER JOIN vaxes
 GROUP BY country;
 
 
+-- top 10 people vaccinated per population (by country)
+
+SELECT country,
+	ROUND((MAX(people_vaccinated)::float/MAX(population))::numeric, 2) AS people_vaxxed_percentage
+FROM country INNER JOIN vaxes
+	ON country.country_id = vaxes.country_id
+WHERE people_vaccinated IS NOT NULL
+GROUP BY country
+ORDER BY people_vaxxed_percentage DESC
+LIMIT 10;
+
+
 -- people vaccinated per population (by continent)
 
 SELECT continent, SUM(population) population, SUM(people_vaxxed) AS people_vaxxed,
