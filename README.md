@@ -418,7 +418,7 @@ For the last type of chart, I use column and bar chart.
   For the column chart, It visualizes the analysis regarding the continent. It is also connected to the upper dropdown list.
 <img width="520" height="229" alt="excel_bar_continent" src="https://github.com/user-attachments/assets/84189c79-9f52-432a-8c81-b9c46933bf83" />  
 
-  For the bar chart, it is specifically used as a visualization of the 5 countries with the highest average stringency during the COVID-19 pandemic. Unlike the other charts, this bar chart is independent or not linked to any dropdown list.
+  For the bar chart, it is specifically used as a visualization of the 5 countries with the highest average stringency during the COVID-19 pandemic. Unlike the other charts, this bar chart is independent or not linked to any dropdown list.  
 <img width="519" height="322" alt="excel_bar_stringency" src="https://github.com/user-attachments/assets/be51d0d2-8750-452d-b87e-ce663e6d51e4" />
 
 
@@ -468,10 +468,11 @@ The third chart used in the dashboard is a bar chart.
   Similar to other Tableau charts, line chart in Tableau is also more interactive than the Excel version. For example, user can add more than one line at once and highlight one of the countries selected. 
 
 
+# Conclusion
+From this project, it shows that Our World in Data's COVID-19 dataset has a ton of potentials that can be explored and analyzed using some tools. Excel, PostgreSQL, and Tableau are completely capable to be used as data analysis tools. Excel particularly is a powerful software to transform the raw dataset to be a workable dataset for futher analysis. Using the Power Query tool, I cleaned the raw dataset with a ton of unecessary columns before it imported to the PostgreSQL for the next data analysis process, that is data exploration process.  
 
+In the data exploration process using PostgreSQL, I am able to examine the dataset into some analysis. Some of the analyses examined in PostgreSQL including total cases, deaths, (average) stringency, vaccinations, and people vaccinated by country; the top 10 countries from the previous analysis; and monthly cases, deaths, (average) stringency, and vaccinations by country from 2020 to 2025. Apart from that, I also explored the data using more advanced queries such as views, functions, and triggers. Those advanced queries are more applicable in real world application where the analyst frequently needs the same queries for some purposes.
 
+For data visualization, both Excel and Tableau are capable to be used as data dashboards. Although Excel is an "all-in-one" software or tool to manage a dataset, the Tableau is faster compared to Excel when rendering the charts. Tableau also has superior capabilities compared to Excel in terms of customizability and interactivity for data visualization, since Tableau was made for that purpose.
 
-
-
-
-
+### Thank you
