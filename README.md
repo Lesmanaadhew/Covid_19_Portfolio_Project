@@ -363,7 +363,7 @@ Based on the results of previous data explorations, I created two interactive da
  4. **Bar/column chart**
 
 ## Excel dashboard
-![dashboard_excel_covid](https://github.com/user-attachments/assets/94de4f4f-2f2b-4412-9d20-ac4033d9646f)
+![dashboard_excel_covid](https://github.com/user-attachments/assets/3a0ce71b-eda5-41d7-b3d7-8bd3d14e0b5b)  
 
  For the Excel version, I created 6 visualizations that are linked to two dropdown lists, and 1 independent visualization.
 
@@ -377,7 +377,7 @@ The upper dropdown list contains 7 types of analysis that can be applied to the 
 
   
 The second dropdown list contains a list of countries and an aggregate of all countries called _World_.  
-<img width="232" height="147" alt="excel_dropdown_bottom" src="https://github.com/user-attachments/assets/fe33333d-0abb-490a-92f1-6d9706152b5f" />
+<img width="232" height="147" alt="excel_dropdown_lower" src="https://github.com/user-attachments/assets/fe33333d-0abb-490a-92f1-6d9706152b5f" />
 
 ### 2. Donut chart
 <img width="208" height="218" alt="excel_donut_cases" src="https://github.com/user-attachments/assets/dc6f38fc-b4c7-4ead-aa3c-4a82a9308687" />
@@ -403,7 +403,15 @@ Here is the example if the _deaths_ type is selected:
 <img width="500" height="320" alt="excel_map_deaths" src="https://github.com/user-attachments/assets/22acef49-a27a-4f5a-8404-4b0f9ddb6ec3" />
 
 
+
 ### 4. Line chart
+<img width="526" height="462" alt="excel_line" src="https://github.com/user-attachments/assets/1cc53fc4-cec0-4cc4-8873-cec4d89b199f" />  
+  
+The third type of chart used in the dashboard in line chart. It serves as a visualization of analyses involving _date_ variables. It is connected to the upper and lower dropdown lists.Here is the example if the upper dropdown list is selected to "_Death Per Case_" and the lower to "_United States_"
+<img width="526" height="462" alt="excel_line_dpc_us" src="https://github.com/user-attachments/assets/cc5e8035-ca55-46b4-b54e-dcdd1b1eb2bd" />
+
+### 5. Bar chart
+
 
 
 
