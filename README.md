@@ -407,25 +407,65 @@ Here is the example if the _deaths_ type is selected:
 ### 4. Line chart
 <img width="526" height="462" alt="excel_line" src="https://github.com/user-attachments/assets/1cc53fc4-cec0-4cc4-8873-cec4d89b199f" />  
   
-The third type of chart used in the dashboard in line chart. It serves as a visualization of analyses involving _date_ variables. It is connected to the upper and lower dropdown lists.Here is the example if the upper dropdown list is selected to "_Death Per Case_" and the lower to "_United States_"
+The third type of chart used in the dashboard in line chart. It serves as a visualization of analyses involving _date_ variables. It is connected to the upper and lower dropdown lists.  
+  
+  Here is the example if the upper dropdown list is selected to "_Death Per Case_" and the lower to "_United States_":
 <img width="526" height="462" alt="excel_line_dpc_us" src="https://github.com/user-attachments/assets/cc5e8035-ca55-46b4-b54e-dcdd1b1eb2bd" />
 
-### 5. Bar chart
+### 5. Column & bar chart
+For the last type of chart, I use column and bar chart.  
+
+  For the column chart, It visualizes the analysis regarding the continent. It is also connected to the upper dropdown list.
+<img width="520" height="229" alt="excel_bar_continent" src="https://github.com/user-attachments/assets/84189c79-9f52-432a-8c81-b9c46933bf83" />  
+
+  For the bar chart, it is specifically used as a visualization of the 5 countries with the highest average stringency during the COVID-19 pandemic. Unlike the other charts, this bar chart is independent or not linked to any dropdown list.
+<img width="519" height="322" alt="excel_bar_stringency" src="https://github.com/user-attachments/assets/be51d0d2-8750-452d-b87e-ce663e6d51e4" />
 
 
+## Tableau dashboard
+![dashboard_tableau_covid](https://github.com/user-attachments/assets/2631abe2-366a-4ee8-9612-4eca2d4ecd9b)
+  
+    
+For the tableau version, I created 6 total charts for the dashboard.
 
+### 1. Donut chart
+<img width="207" height="205" alt="tableau_donut_cases" src="https://github.com/user-attachments/assets/fc0414d6-cd84-48a2-bf6d-e4e52e7d8c49" />
+<img width="212" height="189" alt="tableau_donut_deaths" src="https://github.com/user-attachments/assets/f94ebde0-326d-4486-92df-748457320aff" />
+<img width="201" height="196" alt="tableau_donut_vaxxed" src="https://github.com/user-attachments/assets/e6e55e1e-9828-4b72-afb2-32c23fb9a242" />
 
+The first chart type is donut chart. Similar to the Excel version, the Tableau version also has 3 donut charts, that is _Total Cases_, _Total Deaths_, and _People Vaxxed_. Unlike the excel version, the value in this version is completely independent. But not like the Excel, each donut chart is more interactive, in which the outer layer can be highlighted by selecting it.  
 
+  Here is the example if one of the outer layer is highlighted:  
+  <img width="203" height="189" alt="tableau_donut_highlighted" src="https://github.com/user-attachments/assets/735f15be-a976-4d02-b7c5-2db59b618d76" />
 
+### 2. Map chart
+<img width="504" height="267" alt="tableau_map" src="https://github.com/user-attachments/assets/ba0d4646-d806-4c43-84e5-a70e8a10a4c1" />
 
- 
- 
+  The second chart is a map chart.  
+    
+It has its own dropdown list that contains 6 types of analysis.  
+<img width="202" height="168" alt="tableau_dropdown_map" src="https://github.com/user-attachments/assets/c195ff20-9ad5-4368-a9df-548eadd97d94" />
 
+  Unlike the Excel version, the map chart in Tableau is completely interactive. User can do some actions including zoom-in, zoom-out, move, and highlight the map.  
+![tableau_map_interactive](https://github.com/user-attachments/assets/a84631dd-430c-4703-9096-33f6f4e0aeb3)
 
+### 3. Bar chart
+<img width="235" height="246" alt="tableau_bar" src="https://github.com/user-attachments/assets/528ef160-5840-49a3-85a1-1cf49f256989" />  
+  
+The third chart used in the dashboard is a bar chart.  
 
+  It visualizes the aggregate of each analysis type by continent. The chart is connected to the map chart's dropdown list. As a result, the bar chart will change depending on the selected type on the list.
 
+### 4. Line chart
+<img width="500" height="256" alt="tableau_line" src="https://github.com/user-attachments/assets/27294129-084f-4f61-b744-26b5fe504f38" />  
 
+  The last chart used in the dashboard is a line chart.  
 
+  For this Tableau version, the line chart has its own dropdown list. It has 2 dropdown lists, the upper one contains "monthly" data types, and the lower one contains list of countries that can be selected more than one at once.  
+  <img width="221" height="185" alt="tableau_dropdown_line" src="https://github.com/user-attachments/assets/b4b6dc47-2c90-434c-8fb1-88a644eb908b" />
+  <img width="114" height="333" alt="tableau_dropdown_line_country" src="https://github.com/user-attachments/assets/0d6db2c6-684a-4b0a-b8d6-6a43bc346992" />  
+
+  Similar to other Tableau charts, line chart in Tableau is also more interactive than the Excel version. For example, user can add more than one line at once and highlight one of the countries selected. 
 
 
 
