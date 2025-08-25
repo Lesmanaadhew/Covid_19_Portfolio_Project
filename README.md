@@ -42,10 +42,10 @@ For this project, I have several questions regarding COVID-19 that I wanted to a
 In this project I used **Ms. Excel** to perform data cleaning process. To transform the dataset I used a built-in ETL (extract, transform, load) tool in Ms. Excel called _Power Query_.
 
 ### Removes unnecessary columns
-The work to do in the data cleaning process is to remove columns that don't relate to the questions asked in the introduction.
+The first work to do in this data cleaning process is to remove columns that don't relate to the questions asked in the introduction.
 The initial dataset of Our World In Data COVID-19 dataset contained 61 columns before cleaned into 15 potential and necessary columns.  
 
-The following is the list of columns that being kept:
+The following is a list of the columns retained:
 1. country
 2. date
 3. new_cases
