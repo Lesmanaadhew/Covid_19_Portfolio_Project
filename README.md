@@ -11,7 +11,7 @@ _The Tableau dashboard (online) can be accessed in [here](https://public.tableau
 
 
 # Introduction
-Hi! I am **Lesmana Adhe Wijaya**, a 22-year-old university fresh graduate from Indonesia, currently developing a data analysis skillset.
+Hi! I am **Lesmana Adhe Wijaya**, a 22-year-old fresh graduate from Indonesia, currently developing a data analysis skillset.
 
 ## Background
 This project is a series of data analyses on a COVID-19 database, starting from data cleaning to data visualization. The project mainly explores the health related impacts of COVID-19, such as, number of cases, number of deaths, number of people vaccinated, etc.
